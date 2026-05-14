@@ -1,11 +1,7 @@
 
 'use strict';
 
-/* ============================================================
-   0. PRODUCT HERO GALLERY
-   - Thumbnails switch the main image on click
-   - Prev/Next arrows cycle through images
-   ============================================================ */
+ 
 (function initProductGallery() {
   const mainImg  = document.getElementById('ph-active-img');
   const thumbsEl = document.getElementById('ph-thumbs');
@@ -16,12 +12,10 @@
   const thumbBtns = Array.from(thumbsEl.querySelectorAll('.ph-thumb'));
   let activeIdx = 0;
 
-  /* Switch to a specific thumb index */
-  function switchTo(idx) {
+   function switchTo(idx) {
     activeIdx = (idx + thumbBtns.length) % thumbBtns.length;
     const src = thumbBtns[activeIdx].dataset.src;
-    /* Fade transition */
-    mainImg.style.opacity = '0';
+     mainImg.style.opacity = '0';
     setTimeout(function () {
       mainImg.src = src;
       mainImg.style.opacity = '1';
@@ -44,12 +38,7 @@
   mainImg.style.transition = 'opacity 0.18s ease';
 })();
 
-/* ============================================================
-   1. STICKY HEADER
-   - Appears below the main header when user scrolls past
-     the first fold (window.innerHeight)
-   - Disappears when scrolling back toward the top
-   ============================================================ */
+ 
 (function initStickyHeader() {
   const stickyHeader = document.getElementById('sticky-header');
   const mainHeader   = document.getElementById('main-header');
@@ -67,15 +56,14 @@
 
   function updateHeader() {
     const scrollY       = window.scrollY;
-    const firstFoldEnd  = window.innerHeight;  // bottom of first viewport
+    const firstFoldEnd  = window.innerHeight;  
     const scrollingDown = scrollY > lastScrollY;
 
-    if (scrollY > firstFoldEnd && scrollingDown) {
-      // Past first fold & scrolling down → show sticky header
+    if (scrollY > firstFoldEnd && scrollingDown) { 
       stickyHeader.classList.add('visible');
       stickyHeader.setAttribute('aria-hidden', 'false');
     } else if (!scrollingDown || scrollY <= firstFoldEnd) {
-      // Scrolling up or back within first fold → hide sticky header
+       
       stickyHeader.classList.remove('visible');
       stickyHeader.setAttribute('aria-hidden', 'true');
     }
@@ -87,10 +75,7 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
 
-
-/* ============================================================
-   2. MOBILE HAMBURGER MENU
-   ============================================================ */
+ 
 (function initMobileMenu() {
   const hamburger  = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -110,7 +95,6 @@
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
-    });
     });
   });
 })();
@@ -362,7 +346,7 @@
       preview.style.left = '-9999px';
       preview.style.top  = '-9999px';
     });
-  });
+ 
 })();
 
 
